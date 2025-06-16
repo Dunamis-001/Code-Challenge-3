@@ -1,0 +1,341 @@
+:root {
+    /* Define a futuristic color palette */
+    --bg-dark: #1a1a2e; /* Deep dark blue/purple */
+    --text-light: #e0e0e0; /* Off-white for general text */
+    --accent-neon-blue: #00ffff; /* Cyan/Electric Blue */
+    --accent-neon-green: #00ff00; /* Vibrant Green */
+    --accent-neon-magenta: #ff00ff; /* Magenta */
+    --border-glow: rgba(0, 255, 255, 0.5); /* Semi-transparent cyan for glow */
+    --input-bg: #2b2b4c; /* Slightly lighter dark blue for input fields */
+    --button-primary: #00bfff; /* Sky blue for primary actions */
+    --button-delete: #ff4500; /* Orange-red for delete */
+    --button-toggle: #ffd700; /* Gold for toggle */
+    --button-edit: #8a2be2; /* Blue-violet for edit */
+}
+
+body {
+    font-family: 'Share Tech Mono', monospace; /* Futuristic monospaced font */
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 20px;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.container {
+    background-color: #21213e; /* Slightly lighter than body for contrast */
+    padding: 30px;
+    border-radius: 8px; /* Slight rounding for a tech look */
+    box-shadow: 0 0 20px var(--border-glow); /* Outer glow effect */
+    width: 100%;
+    max-width: 650px;
+    border: 1px solid var(--accent-neon-blue); /* Thin border */
+    position: relative; /* For potential future additions like scanlines */
+    overflow: hidden; /* Keep internal glows contained */
+}
+
+/* Optional: Subtle background pattern for more tech feel */
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        linear-gradient(90deg, transparent 99%, rgba(0, 255, 255, 0.05) 100%),
+        linear-gradient(rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 15px 15px;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif; /* More impactful font for title */
+    text-align: center;
+    color: var(--accent-neon-blue);
+    margin-bottom: 25px;
+    text-shadow: 0 0 10px var(--accent-neon-blue), 0 0 20px rgba(0, 255, 255, 0.7); /* Text glow */
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 1; /* Ensure text is above background pattern */
+}
+
+#guestForm {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+#guestNameInput,
+#guestCategorySelect,
+#guestForm button {
+    padding: 12px 18px;
+    border: 1px solid var(--accent-neon-blue);
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: var(--input-bg);
+    color: var(--text-light);
+    outline: none; /* Remove default focus outline */
+    box-shadow: inset 0 0 5px rgba(0, 255, 255, 0.2); /* Inner glow */
+    transition: all 0.3s ease;
+}
+
+#guestNameInput:focus,
+#guestCategorySelect:focus {
+    border-color: var(--accent-neon-green);
+    box-shadow: inset 0 0 8px rgba(0, 255, 0, 0.4), 0 0 5px rgba(0, 255, 0, 0.2);
+}
+
+#guestNameInput {
+    flex-grow: 1;
+}
+
+#guestCategorySelect {
+    appearance: none; /* Remove default select arrow */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2300ffff' class='bi bi-chevron-down' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px; /* Make space for the custom arrow */
+}
+
+#guestForm button {
+    background-color: var(--button-primary);
+    color: var(--bg-dark); /* Dark text on bright button */
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.4); /* Button glow */
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#guestForm button:hover {
+    background-color: var(--accent-neon-green);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.6), 0 0 25px rgba(0, 255, 0, 0.3);
+    transform: translateY(-1px); /* Slight lift on hover */
+}
+
+#guestCount {
+    text-align: right;
+    font-size: 0.9em;
+    color: var(--accent-neon-blue);
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px var(--accent-neon-blue);
+    position: relative;
+    z-index: 1;
+}
+
+#guestList {
+    list-style: none;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+}
+
+#guestList li {
+    background-color: #2b2b4c; /* Slightly darker than container for list items */
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column; /* Stack info and actions on smaller screens */
+    align-items: flex-start; /* Align info to start */
+    border: 1px solid rgba(0, 255, 255, 0.2); /* Subtle item border */
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.1); /* Soft inner glow */
+    transition: all 0.3s ease;
+    overflow: hidden; /* Contain inner effects */
+}
+
+#guestList li:hover {
+    border-color: var(--accent-neon-green);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+    transform: translateY(-2px); /* Slight lift */
+}
+
+#guestList li .guest-info {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping of elements */
+    align-items: center;
+    width: 100%;
+}
+
+#guestList li .guest-name {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: var(--accent-neon-blue);
+    margin-right: 15px; /* Spacing from tag */
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+#guestList li .guest-meta {
+    font-size: 0.8em;
+    color: rgba(224, 224, 224, 0.7); /* Slightly dimmer meta text */
+    margin-top: 5px; /* Space below name/tag */
+    width: 100%; /* Take full width on small screens */
+}
+
+#guestList li .guest-actions {
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap */
+    gap: 8px; /* Space between buttons */
+    margin-top: 15px; /* Space above buttons */
+    width: 100%;
+    justify-content: flex-end; /* Align actions to the right */
+}
+
+#guestList li .guest-actions button {
+    padding: 8px 12px;
+    border: 1px solid var(--accent-neon-blue);
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.85em;
+    font-family: 'Share Tech Mono', monospace;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+    color: var(--text-light); /* Light text on all buttons */
+}
+
+/* Specific button colors */
+#guestList li .guest-actions .delete-btn {
+    background-color: var(--button-delete);
+    border-color: var(--button-delete);
+}
+
+#guestList li .guest-actions .delete-btn:hover {
+    background-color: #ff6347; /* Lighter red */
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.7);
+    transform: translateY(-1px);
+}
+
+#guestList li .guest-actions .toggle-rsvp-btn {
+    background-color: var(--button-toggle);
+    border-color: var(--button-toggle);
+    color: var(--bg-dark); /* Dark text on bright button */
+}
+
+#guestList li .guest-actions .toggle-rsvp-btn:hover {
+    background-color: #ffe033; /* Lighter gold */
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+    transform: translateY(-1px);
+}
+
+#guestList li .guest-actions .edit-btn {
+    background-color: var(--button-edit);
+    border-color: var(--button-edit);
+}
+
+#guestList li .guest-actions .edit-btn:hover {
+    background-color: #a87ee0; /* Lighter purple */
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.7);
+    transform: translateY(-1px);
+}
+
+
+/* Category Tags */
+.category-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 15px; /* More pill-like */
+    font-size: 0.65em; /* Smaller font for tags */
+    font-weight: bold;
+    margin-left: 10px;
+    color: var(--bg-dark); /* Dark text on bright tags */
+    text-transform: uppercase;
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.5); /* Tag glow */
+    border: 1px solid transparent; /* To prevent border shift on hover */
+    margin-bottom: 5px; /* For wrapping behavior */
+}
+
+.category-Friend {
+    background-color: var(--accent-neon-green);
+    border-color: var(--accent-neon-green);
+}
+
+.category-Family {
+    background-color: var(--accent-neon-magenta);
+    border-color: var(--accent-neon-magenta);
+}
+
+.category-Colleague {
+    background-color: var(--accent-neon-blue);
+    border-color: var(--accent-neon-blue);
+}
+
+/* RSVP Status */
+.attending {
+    color: var(--accent-neon-green); /* Green for attending */
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--accent-neon-green);
+}
+
+.not-attending {
+    color: var(--button-delete); /* Orange-red for not attending */
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--button-delete);
+}
+
+/* Edit Mode Styling */
+.guest-list-item.editing .guest-info {
+    flex-direction: column; /* Stack elements when editing */
+    align-items: flex-start;
+}
+.guest-list-item.editing .guest-name {
+    display: none; /* Hide the name span when editing */
+}
+.guest-list-item.editing .category-tag {
+    margin-left: 0; /* Align tag better in edit mode */
+}
+
+.edit-guest-input {
+    width: calc(100% - 20px); /* Adjust width */
+    padding: 8px 10px;
+    border: 1px solid var(--accent-neon-green);
+    background-color: #3f3f6e; /* Darker input background */
+    color: var(--text-light);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1em;
+    box-shadow: inset 0 0 8px rgba(0, 255, 0, 0.4);
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .container {
+        margin: 15px;
+        padding: 20px;
+    }
+    #guestForm {
+        flex-direction: column;
+    }
+    #guestNameInput,
+    #guestCategorySelect,
+    #guestForm button {
+        width: 100%;
+    }
+    #guestList li .guest-actions {
+        flex-direction: column; /* Stack buttons vertically on very small screens */
+        align-items: stretch; /* Stretch buttons to full width */
+    }
+    #guestList li .guest-actions button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    h1 {
+        font-size: 1.8em;
+    }
+}

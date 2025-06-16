@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest List Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Event Guest List Manager</h1>
+
+        <form id="guestForm">
+            <input type="text" id="guestNameInput" placeholder="Enter guest name" required>
+            <select id="guestCategorySelect">
+                <option value="Friend">Friend</option>
+                <option value="Family">Family</option>
+                <option value="Colleague">Colleague</option>
+            </select>
+            <button type="submit">Add Guest</button>
+        </form>
+
+        <p id="guestCount">Total Guests: 0/10</p>
+
+        <ul id="guestList">
+            </ul>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
