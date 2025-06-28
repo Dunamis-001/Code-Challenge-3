@@ -1,0 +1,39 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Safari Adventures: My First Time in Maasai Mara",
+      "content": "The vast plains of Maasai Mara truly came alive. Witnessing the Great Migration was an unforgettable experience, seeing millions of wildebeest and zebra traverse the landscape.",
+      "author": "Aisha Kimani",
+      "image": "photos/blog-image-1.jpg"
+    },
+    {
+      "id": "2",
+      "title": "Nairobi's Hidden Gems: Exploring Local Eateries",
+      "content": "From the street food stalls in downtown Nairobi to the vibrant cafes in Karen, the city offers a diverse culinary journey. Chapati and nyama choma are a must-try!",
+      "author": "Brian Omondi",
+      "image": "photos/blog-image-2.jpg"
+    },
+    {
+      "id": "3",
+      "title": "Scaling Mount Kenya: A Trekker's Diary",
+      "content": "Reaching the summit of Mount Kenya was challenging but incredibly rewarding. The diverse ecosystems, from dense forests to alpine deserts, made every step fascinating.",
+      "author": "Chebet Koech",
+      "image": "photos/blog-image-3.jpg"
+    },
+    {
+      "id": "4",
+      "title": "Innovation Hubs: The Rise of Tech in Silicon Savannah",
+      "content": "Kenya's tech scene is booming! Companies in Nairobi are driving innovation across FinTech, AgriTech, and mobile solutions, creating exciting opportunities for young talent.",
+      "author": "David Wanjala",
+      "image": "photos/blog-image-4.jpg"
+    },
+    {
+      "id": "5",
+      "title": "Coastal Charms: Diani Beach and Beyond",
+      "content": "The white sands and clear turquoise waters of Diani Beach are breathtaking. Beyond the relaxation, exploring the rich Swahili culture and historic sites like Fort Jesus was a highlight.",
+      "author": "Esther Njeru",
+      "image": "photos/blog-image-5.jpg"
+    }
+  ]
+}

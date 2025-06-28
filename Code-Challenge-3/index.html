@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenyan Blog Post Manager</title>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header section for the application title -->
+        <header>
+            <h1>My Kenyan Blog</h1>
+        </header>
+
+        <!-- Main content area, organized using flexbox for responsiveness -->
+        <main class="main-content">
+            <!-- Section for displaying the list of all blog posts -->
+            <section class="post-list-section">
+                <h2>All Posts</h2>
+                <div id="post-list">
+                    <!-- Blog posts will be dynamically loaded here by JavaScript. -->
+                    <!-- Initial message before content loads. -->
+                    <p>Loading posts...</p>
+                </div>
+            </section>
+
+            <!-- Section for displaying detailed information of a selected post -->
+            <section class="post-detail-section">
+                <h2>Post Details</h2>
+                <div id="post-detail">
+                    <!-- Selected post details will be displayed here by JavaScript. -->
+                    <!-- Initial message instructing the user. -->
+                    <p>Click on a post title to see details.</p>
+                </div>
+            </section>
+
+            <!-- Section for adding new blog posts or editing existing ones -->
+            <section class="new-post-section">
+                <h2>Add New Post / Edit Post</h2>
+                <form id="new-post-form">
+                    <!-- Hidden input to store the ID of the post being edited. -->
+                    <!-- This field is not visible to the user but helps JS identify if we're adding or editing. -->
+                    <input type="hidden" id="post-id">
+
+                    <div class="form-group">
+                        <label for="post-title-input">Title:</label>
+                        <!-- 'required' attribute makes sure the user fills this before submitting. -->
+                        <!-- 'aria-label' provides accessibility information for screen readers. -->
+                        <input type="text" id="post-title-input" required aria-label="Post Title">
+                    </div>
+                    <div class="form-group">
+                        <label for="post-content-input">Content:</label>
+                        <!-- 'rows' sets the initial visible height of the textarea. -->
+                        <textarea id="post-content-input" rows="5" required aria-label="Post Content"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="post-author-input">Author:</label>
+                        <input type="text" id="post-author-input" required aria-label="Post Author">
+                    </div>
+                    <div class="form-group">
+                        <label for="post-image-input">Image URL:</label>
+                        <!-- 'type="url"' helps with basic validation for URLs. -->
+                        <!-- Default placeholder image is provided. -->
+                        <input type="url" id="post-image-input" value="https://placehold.co/400x200/CCCCCC/000000?text=New+Post" required aria-label="Post Image URL">
+                    </div>
+                    
+                    <!-- Buttons for form submission and cancelling an edit. -->
+                    <button type="submit" id="submit-post-button">Add Post</button>
+                    <!-- 'style="display: none;"' initially hides the cancel button. -->
+                    <!-- It will be shown by JavaScript when an edit operation starts. -->
+                    <button type="button" id="cancel-edit-button" style="display: none;">Cancel Edit</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <!-- Link to the main JavaScript file -->
+    
+    <script src="index.js" defer></script>
+</body>
+</html>

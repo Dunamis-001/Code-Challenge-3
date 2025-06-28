@@ -1,0 +1,346 @@
+/* Import Google Fonts for better typography */
+/* 'Inter' is a good, readable font. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* Basic body styling for font, background, and text color */
+body {
+    font-family: 'Inter', sans-serif; /* Use Inter, fall back to any sans-serif font */
+    margin: 0; /* Remove default body margin */
+    padding: 0; /* Remove default body padding */
+    background-color: #f4f7f6; /* Light grey background for the whole page */
+    color: #333; /* Dark grey text color for readability */
+    line-height: 1.6; /* Improve readability of text blocks */
+}
+
+/* Main container for the application, centering it and applying shadow/rounding */
+.container {
+    max-width: 1200px; /* Limits the maximum width of the content */
+    margin: 20px auto; /* Centers the container horizontally with top/bottom margin */
+    padding: 20px; /* Internal spacing within the container */
+    background-color: #ffffff; /* White background for the main content area */
+    border-radius: 12px; /* Slightly rounded corners for a modern look */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* Header styling for the application title */
+header {
+    background-color: #4CAF50; /* A pleasant green header color */
+    color: white; /* White text on the green header */
+    padding: 20px; /* Internal spacing */
+    text-align: center; /* Center the title */
+    border-radius: 8px; /* Rounded corners for the header */
+    margin-bottom: 25px; /* Space below the header */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for header */
+}
+
+/* Styling for main headings */
+h1, h2 {
+    color: #333; /* Dark text for headings */
+    margin-top: 0; /* Remove default top margin */
+}
+
+h1 {
+    font-size: 2.5em; /* Larger font size for main title */
+    font-weight: 700; /* Bold font weight */
+}
+
+h2 {
+    font-size: 1.8em; /* Slightly smaller font for section headings */
+    color: #4CAF50; /* Green for section headings to match the theme */
+    border-bottom: 2px solid #e0e0e0; /* A subtle line below headings */
+    padding-bottom: 10px; /* Space between heading and the line */
+    margin-bottom: 20px; /* Space below the heading and line */
+}
+
+/* Layout for main content sections using flexbox */
+/* Flexbox makes it easy to arrange sections side-by-side or stacked. */
+.main-content {
+    display: flex; /* Enable flex container */
+    flex-wrap: wrap; /* Allows sections to wrap onto the next line on smaller screens */
+    gap: 25px; /* Spacing between flex items (sections) */
+}
+
+/* Styling for individual content sections */
+.post-list-section,
+.post-detail-section,
+.new-post-section {
+    background-color: #f9f9f9; /* Light background for content sections */
+    padding: 20px; /* Internal spacing */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Soft shadow */
+    flex: 1; /* Allows sections to grow and shrink to fill available space */
+    min-width: 300px; /* Minimum width before forcing a wrap */
+}
+
+/* Specific width distribution for sections using flex-basis */
+/* This defines the ideal size for each section before flex:1 takes over. */
+.post-list-section {
+    flex-basis: 30%; /* Takes approximately 30% of the available width */
+}
+
+.post-detail-section {
+    flex-basis: 60%; /* Takes approximately 60% of the available width */
+}
+
+.new-post-section {
+    flex-basis: 100%; /* Takes full width at the bottom, ensuring it's always below other sections */
+}
+
+
+/* Styling for the list of posts container */
+#post-list {
+    list-style: none; /* Remove default list bullets */
+    padding: 0; /* Remove default padding */
+}
+
+/* Styling for individual post items in the list */
+.post-item {
+    background-color: #ffffff; /* White background for each post item */
+    border: 1px solid #ddd; /* Light grey border */
+    border-radius: 8px; /* Rounded corners */
+    margin-bottom: 15px; /* Space between post items */
+    padding: 15px; /* Internal spacing */
+    display: flex; /* Use flexbox for image and text alignment */
+    align-items: center; /* Vertically align items in the center */
+    gap: 15px; /* Space between image and text */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effects */
+}
+
+.post-item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Stronger shadow on hover */
+}
+
+/* Styling for post item images */
+.post-item-image {
+    width: 80px; /* Fixed width for list item images */
+    height: 80px; /* Fixed height */
+    object-fit: cover; /* Ensures image covers the area without distortion */
+    border-radius: 6px; /* Slightly rounded image corners */
+    flex-shrink: 0; /* Prevents image from shrinking when space is limited */
+}
+
+/* Content area within a post item (contains title) */
+.post-item-content {
+    flex-grow: 1; /* Allows content to take available space */
+}
+
+/* Styling for post titles in the list */
+.post-item h3 {
+    margin: 0 0 10px 0; /* Adjust margin for proper spacing */
+    color: #007BFF; /* Blue color for clickable titles */
+    cursor: pointer; /* Changes cursor to pointer to indicate it's clickable */
+    font-size: 1.2em; /* Font size for list titles */
+    transition: color 0.2s ease; /* Smooth color transition on hover */
+}
+
+.post-item h3:hover {
+    color: #0056b3; /* Darker blue on hover */
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Styling for action buttons within post items (Edit, Delete) */
+.post-item-actions button {
+    background-color: #007bff; /* Primary blue button */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 8px 12px; /* Internal spacing */
+    border-radius: 6px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 0.9em; /* Smaller font size for action buttons */
+    margin-left: 8px; /* Space between buttons */
+    transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth hover effects */
+}
+
+.post-item-actions button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.post-item-actions button.edit {
+    background-color: #ffc107; /* Warning yellow for edit button */
+    color: #333; /* Dark text for better contrast on yellow */
+}
+
+.post-item-actions button.edit:hover {
+    background-color: #e0a800; /* Darker yellow on hover */
+}
+
+.post-item-actions button.delete {
+    background-color: #dc3545; /* Danger red for delete button */
+}
+
+.post-item-actions button.delete:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+
+/* Styling for the post details section */
+#post-detail {
+    padding: 20px; /* Internal spacing */
+    background-color: #e6f7ff; /* Light blue background for details */
+    border-radius: 10px; /* Rounded corners */
+    min-height: 150px; /* Ensures minimum height even if content is small */
+    display: flex; /* Use flexbox for internal layout */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: flex-start; /* Align content to the start */
+    align-items: flex-start; /* Align content to the start */
+}
+
+#post-detail h3 {
+    font-size: 2em; /* Larger title in details */
+    color: #0056b3; /* Dark blue color */
+    margin-bottom: 10px; /* Space below title */
+}
+
+#post-detail p {
+    margin-bottom: 8px; /* Space between paragraphs */
+    color: #555; /* Slightly lighter text for message */
+}
+
+#post-detail .detail-image {
+    max-width: 100%; /* Ensures image doesn't overflow its container */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 8px; /* Rounded corners */
+    margin-top: 15px; /* Space above the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+/* Styling for form groups (label + input) */
+.form-group {
+    margin-bottom: 15px; /* Space between form fields */
+}
+
+.form-group label {
+    display: block; /* Makes label take full width and puts input on new line */
+    margin-bottom: 8px; /* Space between label and input */
+    font-weight: 600; /* Bold label text */
+    color: #444; /* Darker color for labels */
+}
+
+/* Styling for form input fields and textareas */
+.form-group input[type="text"],
+.form-group input[type="url"],
+.form-group textarea {
+    width: calc(100% - 22px); /* Calculate width to account for padding and border */
+    padding: 10px; /* Internal spacing */
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 6px; /* Rounded corners */
+    font-size: 1em; /* Standard font size */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resizing of textarea */
+    min-height: 80px; /* Minimum height for textarea */
+}
+
+/* Styling for form submission buttons */
+#new-post-form button {
+    background-color: #28a745; /* Success green button */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 12px 20px; /* Internal spacing */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 1.1em; /* Larger font size for main buttons */
+    margin-right: 10px; /* Space between buttons */
+    transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth hover effects */
+}
+
+#new-post-form button:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Styling for the cancel edit button */
+#new-post-form button#cancel-edit-button {
+    background-color: #6c757d; /* Grey button for cancel */
+}
+
+#new-post-form button#cancel-edit-button:hover {
+    background-color: #5a6268; /* Darker grey on hover */
+}
+
+/* Responsive adjustments for smaller screens */
+/* apply styles only when the screen width is 768px or less. */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column; /* Stack sections vertically on small screens */
+    }
+
+    .post-list-section,
+    .post-detail-section,
+    .new-post-section {
+        flex-basis: 100%; /* Make sections take full width */
+        min-width: unset; /* Remove min-width constraint */
+    }
+}
+
+/* --- Styles for Custom Alert/Confirm Boxes --- */
+/* These styles ensure the custom dialogs look good and are centered. */
+.custom-dialog {
+    position: fixed; /* Fixed positioning means it stays in place relative to the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background (overlay) */
+    display: flex; /* Use flexbox to center the content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    z-index: 1000; /* Ensures the dialog is on top of all other content */
+}
+
+.dialog-content {
+    background: white; /* White background for the dialog box itself */
+    padding: 30px; /* Internal spacing */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+    text-align: center; /* Center text inside the dialog */
+    max-width: 400px; /* Maximum width of the dialog */
+    width: 90%; /* Take 90% of screen width on small screens */
+    box-sizing: border-box; /* Include padding and border in the total width/height */
+    border-radius: 8px; /* Rounded corners */
+}
+
+.dialog-content h3 {
+    margin-top: 0; /* Remove default top margin */
+    color: #333; /* Dark text for title */
+    font-size: 1.5em; /* Larger font size for title */
+    margin-bottom: 15px; /* Space below title */
+}
+
+.dialog-content p {
+    margin-bottom: 25px; /* Space below message */
+    color: #555; /* Slightly lighter text for message */
+}
+
+.dialog-ok-button,
+.dialog-confirm-button,
+.dialog-cancel-button {
+    background-color: #4CAF50; /* Green button for OK/Confirm by default */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 20px; /* Internal spacing */
+    border-radius: 6px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 1em; /* Standard font size */
+    margin: 0 10px; /* Space between buttons */
+    transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth hover effects */
+}
+
+.dialog-ok-button:hover,
+.dialog-confirm-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.dialog-cancel-button {
+    background-color: #dc3545; /* Red for cancel button */
+}
+
+.dialog-cancel-button:hover {
+    background-color: #c82333; /* Darker red on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
